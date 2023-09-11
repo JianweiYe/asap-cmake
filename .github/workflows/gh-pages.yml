@@ -20,7 +20,7 @@ jobs:
         run: sudo apt-get install -y graphviz
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: "3.9"
 
@@ -34,7 +34,7 @@ jobs:
         run: echo "dir=$(pip cache dir)" >>$GITHUB_OUTPUT
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
